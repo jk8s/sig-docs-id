@@ -14,13 +14,12 @@ Translation is sometimes a tedious work, so we need some motivation to do it.
 Getting started for this `docs-id` project can be found in [this slide](https://docs.google.com/presentation/d/1g8NLYpfrvBb8DbR_UT74M-p2VQn58wZ2_ztqGEg--HM/edit?usp=sharing). To summarize, the steps are:
 1. Join [#kubernetes-docs-id](https://kubernetes.slack.com/messages/CJ1LUCUHM) channel in Kubernetes slack. You can discuss and ask any questions here related to your contribution.
 2. Kubernetes org requires you to sign CLA in order to contribute. Follow [this guide](https://github.com/kubernetes/community/blob/master/CLA.md) if you haven't done so.
-3. Open the existing [Kubernetes ID docs](https://kubernetes.io/id/docs/), find any page that is still written in English. For current milestone, we focus on `concept`, `task`, and `tutorial` sections.
-4. Browse issues in [kubernetes/website](https://github.com/kubernetes/website/issues?q=is%3Aopen+is%3Aissue+label%3Alanguage%2Fid) repo filtered with `language/id` label. If you haven't found anyone else working on your translation page, create [a new issue](https://github.com/kubernetes/website/issues/new?labels%5B%5D=kind%2Ffeature&template=feature-request.md) describing your work. Don't forget to label your issue with `language/id`. Finally, put comment in your issue that you are going to work on it.
-5. [Fork](https://github.com/kubernetes/website/fork) the `kubernetes/website` repo to your own Github account.
-6. Make your changes in your own fork. Look for the `content/id` directory. For the page you want to translate, copy from original `content/en` and translate. Make sure the directory structure reflects the English one.
-7. Push to your fork, then raise Pull-Request from your fork to `kubernetes/website`. Don't forget to put `language/id` label. If there's no issue, you will get netlify link to preview your live change.
-8. Someone from `sig-docs-id` will review. If not, go to the Slack channel and remind people.
-9. Once sorted, your contribution will be merged and reflected live in [Kubernetes ID docs](https://kubernetes.io/id)!
+3. Look at Indonesian translation [issue tracker](https://github.com/kubernetes/website/issues/13929) to pick what page to translate.
+4. [Fork](https://github.com/kubernetes/website/fork) the `kubernetes/website` repo to your own Github account.
+5. Make your changes in your own fork. Look for the `content/id` directory. For the page you want to translate, copy from original `content/en` and translate. Make sure the directory structure reflects the English one.
+6. Push to your fork, then raise Pull-Request from your fork to `kubernetes/website`. Don't forget to put `language/id` label. If there's no issue, you will get netlify link to preview your live change.
+7. Someone from `sig-docs-id` will review. If not, go to the Slack channel and remind people.
+8. Once sorted, your contribution will be merged and reflected live in [Kubernetes ID docs](https://kubernetes.io/id)!
 
 Some optional readings to help you, but not required:
 * Indonesian [readme](https://github.com/kubernetes/website/blob/master/README-id.md) of `kubernetes/website`.
@@ -35,4 +34,4 @@ Some popular Indonesian doc of other technologies that we can refer to:
 
 Writing technical doc in Bahasa Indonesian in itself is a very challenging task, because of our habit in using English terms for technical conversation. This is a learning process for all of us. 
 
-To help solving this, we maintain several glossary that can be used for translation in [this docs](https://docs.google.com/spreadsheets/d/1uK1TGfKyT5ZmWWQx4c4KYm7YmOmuOHyQW-bh8rGTMP4/edit?usp=sharing), which will standardize the Indonesian doc ultimately. Keep in mind that glossary list will keep on going as we learn together as Indonesian community. After learning how community writes Indonesian docs, we will attempt to provide standardized writing style guide for Bahasa Indonesia.
+To help solving this, we maintain several glossary that can be used for translation in [this docs](https://docs.google.com/spreadsheets/d/1uK1TGfKyT5ZmWWQx4c4KYm7YmOmuOHyQW-bh8rGTMP4/edit?usp=sharing), which will standardize the Indonesian doc ultimately. Keep in mind that glossary list will keep on going as we learn together as Indonesian community. Discuss in [#kubernetes-docs-id](https://kubernetes.slack.com/messages/CJ1LUCUHM) Slack channel for suggesting new terms. After learning how community writes Indonesian docs, we will attempt to provide standardized writing style guide for Bahasa Indonesia. 
