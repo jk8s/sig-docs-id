@@ -35,3 +35,7 @@ Some popular Indonesian doc of other technologies that we can refer to:
 Writing technical doc in Bahasa Indonesian in itself is a very challenging task, because of our habit in using English terms for technical conversation. This is a learning process for all of us. 
 
 To help solving this, we maintain several glossary that can be used for translation in [this docs](https://docs.google.com/spreadsheets/d/1uK1TGfKyT5ZmWWQx4c4KYm7YmOmuOHyQW-bh8rGTMP4/edit?usp=sharing), which will standardize the Indonesian doc ultimately. Keep in mind that glossary list will keep on going as we learn together as Indonesian community. Discuss in [#kubernetes-docs-id](https://kubernetes.slack.com/messages/CJ1LUCUHM) Slack channel for suggesting new terms. After learning how community writes Indonesian docs, we will attempt to provide standardized writing style guide for Bahasa Indonesia. 
+
+## RSNI Glossary
+
+This is a [RSNI glossary](resources/RSNI-glossarium.pdf)
