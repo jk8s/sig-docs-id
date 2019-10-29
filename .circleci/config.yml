@@ -21,4 +21,4 @@ jobs:
             echo ""
 
             num_translated=$(echo $pages | grep -v _index.md | wc -l)
-            echo "translated pages count: $num_translated"
+            echo "translated pages count:= $num_translated"
