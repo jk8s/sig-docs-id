@@ -12,8 +12,7 @@ jobs:
           command: |
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone git@github.com:kubernetes/website.git
-            cd website
       
       - run:
           name: list out all Indonesian concept pages
-          command: find content/id/docs/concepts -type f
+          command: find website/content/id/docs/concepts -type f
