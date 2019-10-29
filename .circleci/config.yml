@@ -8,19 +8,35 @@ jobs:
 
     steps:
       - run:
-          name: clone k/website repo
+          name: Clone k/website repo
           command: |
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone git@github.com:kubernetes/website.git
       
       - run:
-          name: list out all Indonesian translated pages
+          name: List out all Indonesian translated pages
           command: |
+            pushd website
+
             echo "List of translated pages:"
             echo ""
-            find website/content/id/docs -type f | grep -v index.md
+            find ./content/id/docs -type f | grep -v index.md
 
             echo ""
             echo "Translated pages count:"
+            find ./content/id/docs -type f | grep -v index.md | wc -l
+
+            popd
+
+      - run:
+          name: List of open PRs
+          command: |
+            pushd website
+
+            pages=$(find ./content/id/docs -type f)
+
+            echo "List of pages that have been touched by open PRs:"
             echo ""
-            find website/content/id/docs -type f | grep -v index.md | wc -l
+            echo $pages | xargs -L1 ./scripts/find_pr.py --tags "language/id" $1 --token $GITHUB_API_TOKEN
+
+            popd
