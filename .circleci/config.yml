@@ -14,5 +14,11 @@ jobs:
             git clone git@github.com:kubernetes/website.git
       
       - run:
-          name: list out all Indonesian concept pages
-          command: find website/content/id/docs/concepts -type f
+          name: list out all Indonesian translated pages
+          command: |
+            pages=$(find content/id/docs -type f)
+            echo $pages
+            echo ""
+
+            num_translated=$(echo $pages | grep -v _index.md | wc -l)
+            echo "translated pages count: $num_translated"
