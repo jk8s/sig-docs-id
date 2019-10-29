@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python:3.6.1
+
+    working_directory: ~/repo
+
+    steps:
+      - run:
+          name: clone k/website repo
+          command: git clone git@github.com:kubernetes/website.git
+      
+      - run:
+          name: list out all Indonesian concept pages
+          command: find content/id/docs/concepts -type f
