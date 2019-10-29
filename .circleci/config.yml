@@ -29,14 +29,7 @@ jobs:
             popd
 
       - run:
-          name: List of open PRs
+          name: List of open PRs for language/id
           command: |
-            pushd website
-
-            sudo python3 -m pip install -r ./scripts/requirements.txt
-
-            echo "List of pages that have been touched by open PRs:"
-            echo ""
-            find ./content/en/docs -type f | sed 's#/en/#/id/#g' | xargs -L1 ./scripts/find_pr.py --tags "language/id" $1 --token $GITHUB_API_TOKEN
-
-            popd
+            curl -s https://api.github.com/search/issues\?q\=is:open+type:pr+label:language/id\&sort\=created\&order\=dsc > tmp
+            cat tmp | jq -r '.items[] | "\(.user.login)\n\(.title)\n\(.html_url)\n"'
