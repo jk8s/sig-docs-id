@@ -9,7 +9,10 @@ jobs:
     steps:
       - run:
           name: clone k/website repo
-          command: git clone git@github.com:kubernetes/website.git
+          command: |
+            mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+            git clone git@github.com:kubernetes/website.git
+            cd kubernetes/website
       
       - run:
           name: list out all Indonesian concept pages
