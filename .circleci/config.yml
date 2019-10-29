@@ -16,7 +16,7 @@ jobs:
       - run:
           name: list out all Indonesian translated pages
           command: |
-            pages=$(find content/id/docs -type f)
+            pages=$(find website/content/id/docs -type f)
             echo $pages
             echo ""
 
