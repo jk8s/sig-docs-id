@@ -34,10 +34,9 @@ jobs:
             pushd website
 
             sudo python3 -m pip install -r ./scripts/requirements.txt
-            pages=$(find ./content/id/docs -type f)
 
             echo "List of pages that have been touched by open PRs:"
             echo ""
-            echo $pages | xargs -L1 ./scripts/find_pr.py --tags "language/id" $1 --token $GITHUB_API_TOKEN
+            find ./content/id/docs -type f | xargs -L1 ./scripts/find_pr.py --tags "language/id" $1 --token $GITHUB_API_TOKEN
 
             popd
