@@ -12,6 +12,7 @@ jobs:
           command: |
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone git@github.com:kubernetes/website.git
+            sudo python3 -m pip install -r website/scripts/requirements.txt
       
       - run:
           name: List out all Indonesian translated pages
