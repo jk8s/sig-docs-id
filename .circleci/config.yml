@@ -13,7 +13,7 @@ jobs:
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone git@github.com:kubernetes/website.git
             sudo python3 -m pip install -r website/scripts/requirements.txt
-      
+
       - run:
           name: List out all Indonesian translated pages
           command: |
@@ -34,6 +34,13 @@ jobs:
           command: |
             curl -s https://api.github.com/search/issues\?q\=is:open+type:pr+label:language/id\&sort\=created\&order\=dsc > tmp
             cat tmp | jq -r '.items[] | "\(.user.login)\n\(.title)\n\(.html_url)\n"'
+
+      - run:
+          name: List of merged PRs for language/id the past 2 weeks
+          command: |
+            export TWO_WEEKS_AGO=$(date -v-14d +%Y-%m-%d)
+            curl -s https://api.github.com/search/issues\?q\=type:pr+label:language/id+is:merged\&sort\=updated\&order\=dsc > tmp
+            cat tmp | jq -r --arg TWO_WEEKS_AGO "$TWO_WEEKS_AGO" '.items[] | select( (.closed_at >= $TWO_WEEKS_AGO)) | "\(.closed_at)\n\(.user.login)\n\(.title)\n\(.html_url)\n"'
 
       - run:
           name: Clone jk8s/sig-docs-id repo
