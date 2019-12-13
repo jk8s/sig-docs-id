@@ -44,7 +44,7 @@ jobs:
 
             echo ""
             echo "Number of merged PRs for the past 2 weeks:"
-            cat tmp|  jq -r --arg TWO_WEEKS_AGO "$TWO_WEEKS_AGO" '.items[] | select( (.closed_at >= $TWO_WEEKS_AGO)) | .url'
+            cat tmp|  jq -r --arg TWO_WEEKS_AGO "$TWO_WEEKS_AGO" '.items[] | select( (.closed_at >= $TWO_WEEKS_AGO)) | .url' | wc -l
 
       - run:
           name: Clone jk8s/sig-docs-id repo
