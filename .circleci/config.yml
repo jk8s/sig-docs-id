@@ -35,6 +35,10 @@ jobs:
             curl -s https://api.github.com/search/issues\?q\=is:open+type:pr+label:language/id\&sort\=created\&order\=dsc > tmp
             cat tmp | jq -r '.items[] | "\(.user.login)\n\(.title)\n\(.html_url)\n"'
 
+            echo ""
+            echo "Number of open PRs all time:"
+            cat tmp | jq -r '.items[].url' | wc -l
+
       - run:
           name: List of merged PRs for language/id the past 2 weeks
           command: |
