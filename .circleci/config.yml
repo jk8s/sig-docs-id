@@ -13,6 +13,7 @@ jobs:
             mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
             git clone git@github.com:kubernetes/website.git
             sudo python3 -m pip install -r website/scripts/requirements.txt
+            sudo python3 -m pip install deadlinks>=0.2.1
 
       - run:
           name: List out all Indonesian translated pages
@@ -51,9 +52,14 @@ jobs:
             cat tmp|  jq -r --arg TWO_WEEKS_AGO "$TWO_WEEKS_AGO" '.items[] | select( (.closed_at >= $TWO_WEEKS_AGO)) | .url' | wc -l
 
       - run:
-          name: Clone jk8s/sig-docs-id repo
+          name: Deadlinks Checking
           command: |
-            git clone git@github.com:jk8s/sig-docs-id.git
+            sudo python3 -m pip install deadlinks>=0.2.1 -q
+            deadlinks http://kubernetes.io/id/ -n10 -e --no-progress
+
+      - run:
+          name: Clone jk8s/sig-docs-id repo
+          command: git clone git@github.com:jk8s/sig-docs-id.git
 
       - run:
           name: Find diff between EN and ID docs
