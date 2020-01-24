@@ -58,9 +58,15 @@ jobs:
             deadlinks http://kubernetes.io/id/ -n10 -e --no-progress
 
       - run:
-          name: Clone jk8s/sig-docs-id repo
-          command: git clone git@github.com:jk8s/sig-docs-id.git
+          name: Clone jk8s/sig-docs-id repo and install dependencies
+          command: |
+            git clone git@github.com:jk8s/sig-docs-id.git
+            sudo python3 -m pip install -r sig-docs-id/scripts/requirements.txt
 
       - run:
           name: Find diff between EN and ID docs
           command: sig-docs-id/scripts/diff_en_id.py website
+
+      - run:
+          name: Sort top contributors based on number of PRs merged
+          command: sig-docs-id/scripts/get_top_contributors.py
