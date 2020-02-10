@@ -19,7 +19,7 @@ def main():
   """
   print('These are the top contributors to kubernetes.io/id, sorted based on number of PRs merged:')
 
-  page_number = 0
+  page_number = 1
   all_pull_requests = []
   pull_requests = get_pull_requests(page=page_number)
   while len(pull_requests) > 0:
