@@ -11,7 +11,6 @@ def get_files(path):
   return files
 
 def pprint(bad_links):
-  print(bad_links)
   for k,v in bad_links.items():
     if len(v) > 0:
       print(k)
