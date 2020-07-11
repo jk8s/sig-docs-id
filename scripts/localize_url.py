@@ -24,7 +24,9 @@ def get_en_links(id_files, path):
     links.add(f[len(path):-3])
   return links
     
-def find_links(id_files, en_links, overwrite=False):
+def find_links(id_files, id_path_prefix, overwrite=False):
+  en_links = get_en_links(id_files, id_path_prefix)
+
   result = {}
   for idf in id_files:
     bad_links = []
@@ -60,9 +62,8 @@ def main(repo, overwrite):
   id_path = id_path_prefix + "/docs"
 
   id_files = get_files(id_path)
-  en_links = get_en_links(id_files, id_path_prefix)
 
-  result = find_links(id_files, en_links, overwrite)
+  result = find_links(id_files, id_path_prefix, overwrite)
   pprint(result)
 
 if __name__ == '__main__':
