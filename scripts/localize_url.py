@@ -61,6 +61,9 @@ def main(repo, overwrite):
     ./localize_url.py path/to/website-repo
   """
 
+  p = Path(repo)
+  repo = p.resolve()
+
   id_path_prefix = "%s/content/id" % (repo)
   id_path = id_path_prefix + "/docs"
 
