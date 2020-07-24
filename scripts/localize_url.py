@@ -11,12 +11,16 @@ def get_files(path):
   return files
 
 def pprint(bad_links):
+  found = False
   for k,v in bad_links.items():
     if len(v) > 0:
       print(k)
       for vv in v:
         print("--> " + vv)
+        found = True
       print()
+  if (found == False):  
+    print("ok, no need to replace anything")
 
 def get_en_links(id_files, path):
   links = set()
