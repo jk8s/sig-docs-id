@@ -22,12 +22,22 @@ def pprint(bad_links):
   if (found == False):  
     print("ok, no need to replace anything")
 
+"""
+Get EN links from ID files.
+This will ensure all EN links are already translated
+"""
 def get_en_links(id_files, path):
   links = set()
   for f in id_files:
-    links.add(f[len(path):-3])
+    links.add(f[len(path):-3]) # remove .md
   return links
     
+"""
+This will read all ID files
+check if they have EN links that already translated
+
+It can overwrite the EN to ID links, depends on 3rd parameters
+"""
 def find_links(id_files, id_path_prefix, overwrite=False):
   en_links = get_en_links(id_files, id_path_prefix)
 
