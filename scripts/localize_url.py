@@ -40,7 +40,6 @@ def find_links(id_files, id_path_prefix, overwrite=False):
           bad_links.append(en_link)
           fread = fread.replace(en_link_md, id_link_md)
       if overwrite==True:
-        print(overwrite)
         w = open(idf, "w")
         w.write(fread)
         w.close()
