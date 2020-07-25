@@ -70,3 +70,7 @@ jobs:
       - run:
           name: Sort top contributors based on number of PRs merged
           command: sig-docs-id/scripts/get_top_contributors.py
+
+      - run:
+          name: Check possibility to replace EN links to ID links
+          command: sig-docs-id/scripts/localize_url.py website

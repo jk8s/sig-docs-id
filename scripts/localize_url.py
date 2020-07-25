@@ -11,19 +11,33 @@ def get_files(path):
   return files
 
 def pprint(bad_links):
+  found = False
   for k,v in bad_links.items():
     if len(v) > 0:
       print(k)
       for vv in v:
         print("--> " + vv)
+        found = True
       print()
+  if (found == False):  
+    print("ok, no need to replace anything")
 
+"""
+Get EN links from ID files.
+This will ensure all EN links are already translated
+"""
 def get_en_links(id_files, path):
   links = set()
   for f in id_files:
-    links.add(f[len(path):-3])
+    links.add(f[len(path):-3]) # remove .md
   return links
     
+"""
+This will read all ID files
+check if they have EN links that already translated
+
+It can overwrite the EN to ID links, depends on 3rd parameters
+"""
 def find_links(id_files, id_path_prefix, overwrite=False):
   en_links = get_en_links(id_files, id_path_prefix)
 
@@ -40,7 +54,6 @@ def find_links(id_files, id_path_prefix, overwrite=False):
           bad_links.append(en_link)
           fread = fread.replace(en_link_md, id_link_md)
       if overwrite==True:
-        print(overwrite)
         w = open(idf, "w")
         w.write(fread)
         w.close()
@@ -57,6 +70,9 @@ def main(repo, overwrite):
   ex:
     ./localize_url.py path/to/website-repo
   """
+
+  p = Path(repo)
+  repo = p.resolve()
 
   id_path_prefix = "%s/content/id" % (repo)
   id_path = id_path_prefix + "/docs"
