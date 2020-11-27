@@ -1,0 +1,21 @@
+diff --git a/content/en/examples/service/networking/nginx-secure-app.yaml b/content/en/examples/service/networking/nginx-secure-app.yaml
+index ec180a18d..5ef865d52 100644
+--- a/content/en/examples/service/networking/nginx-secure-app.yaml
++++ b/content/en/examples/service/networking/nginx-secure-app.yaml
+@@ -35,6 +35,9 @@ spec:
+       - name: secret-volume
+         secret:
+           secretName: nginxsecret
++      - name: configmap-volume
++        configMap:
++          name: nginxconfigmap
+       containers:
+       - name: nginxhttps
+         image: bprashanth/nginxhttps:1.0
+@@ -44,3 +47,5 @@ spec:
+         volumeMounts:
+         - mountPath: /etc/nginx/ssl
+           name: secret-volume
++        - mountPath: /etc/nginx/conf.d
++          name: configmap-volume
+

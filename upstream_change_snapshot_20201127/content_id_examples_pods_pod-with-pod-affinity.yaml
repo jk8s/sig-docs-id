@@ -1,0 +1,23 @@
+diff --git a/content/en/examples/pods/pod-with-pod-affinity.yaml b/content/en/examples/pods/pod-with-pod-affinity.yaml
+index 35e645ef1..6d075e086 100644
+--- a/content/en/examples/pods/pod-with-pod-affinity.yaml
++++ b/content/en/examples/pods/pod-with-pod-affinity.yaml
+@@ -12,7 +12,7 @@ spec:
+             operator: In
+             values:
+             - S1
+-        topologyKey: failure-domain.beta.kubernetes.io/zone
++        topologyKey: topology.kubernetes.io/zone
+     podAntiAffinity:
+       preferredDuringSchedulingIgnoredDuringExecution:
+       - weight: 100
+@@ -23,7 +23,7 @@ spec:
+               operator: In
+               values:
+               - S2
+-          topologyKey: failure-domain.beta.kubernetes.io/zone
++          topologyKey: topology.kubernetes.io/zone
+   containers:
+   - name: with-pod-affinity
+     image: k8s.gcr.io/pause:2.0
+

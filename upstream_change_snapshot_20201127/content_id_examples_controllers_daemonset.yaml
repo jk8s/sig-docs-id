@@ -1,0 +1,14 @@
+diff --git a/content/en/examples/controllers/daemonset.yaml b/content/en/examples/controllers/daemonset.yaml
+index 1bfa08283..f291b750c 100644
+--- a/content/en/examples/controllers/daemonset.yaml
++++ b/content/en/examples/controllers/daemonset.yaml
+@@ -15,6 +15,8 @@ spec:
+         name: fluentd-elasticsearch
+     spec:
+       tolerations:
++      # this toleration is to have the daemonset runnable on master nodes
++      # remove it if your masters can't run pods
+       - key: node-role.kubernetes.io/master
+         effect: NoSchedule
+       containers:
+

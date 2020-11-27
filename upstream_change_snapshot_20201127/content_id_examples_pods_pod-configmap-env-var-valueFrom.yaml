@@ -1,0 +1,14 @@
+diff --git a/content/en/examples/pods/pod-configmap-env-var-valueFrom.yaml b/content/en/examples/pods/pod-configmap-env-var-valueFrom.yaml
+index a72b4335c..00827ec98 100644
+--- a/content/en/examples/pods/pod-configmap-env-var-valueFrom.yaml
++++ b/content/en/examples/pods/pod-configmap-env-var-valueFrom.yaml
+@@ -6,7 +6,7 @@ spec:
+   containers:
+     - name: test-container
+       image: k8s.gcr.io/busybox
+-      command: [ "/bin/sh", "-c", "echo $(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)" ]
++      command: [ "/bin/echo", "$(SPECIAL_LEVEL_KEY) $(SPECIAL_TYPE_KEY)" ]
+       env:
+         - name: SPECIAL_LEVEL_KEY
+           valueFrom:
+
